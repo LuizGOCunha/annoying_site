@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <title>Annoying Site</title>
-    <script type="module" src="{{ url_for('static', filename='utility.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='main.js') }}"></script>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
             background-color: #f0f0f0;
         }
-        .button {
+        #movingButton {
+            position:absolute;
+            top: 20px;
+            left: 20px;
             padding: 20px 40px;
             font-size: 24px;
             color: white;
@@ -23,14 +21,13 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            text-align: center;
         }
-        .button:hover {
+        #movingButton:hover {
             background-color: #0056b3;
         }
-    </style>
+        </style>
 </head>
 <body>
-    <button class="button">Press Me</button>
+    <button id="movingButton" class="movingButton" href="/hello">Press Me</button>
 </body>
 </html>

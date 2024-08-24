@@ -7,3 +7,7 @@ with app.app_context():
     @app.route("/")
     def main():
         return render_template("main.html")
+
+    @app.route("/hello")
+    def hello():
+        return "Done"
