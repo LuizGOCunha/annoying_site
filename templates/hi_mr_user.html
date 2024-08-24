@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered GIF</title>
+    <!-- We need to make this better, make a base html that we can extend -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script type="module" src="{{ url_for('static', filename='main.js') }}"></script>
+    <title>Annoying Site</title>
     <style>
         body {
             display: flex;
@@ -11,7 +14,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: black;
         }
         img {
             max-width: 100%;
