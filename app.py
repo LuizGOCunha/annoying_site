@@ -10,4 +10,4 @@ with app.app_context():
 
     @app.route("/hello")
     def hello():
-        return "Done"
+        return render_template("hi_mr_user.html")

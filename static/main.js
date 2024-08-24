@@ -1,16 +1,24 @@
+var annoyianceMeter = 0;
+
+function moveElem(elem){
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const elemWidth = elem.offsetWidth;
+    const elemHeight = elem.offsetHeight;
+
+    const newTop = Math.random() * (viewportHeight - elemHeight);
+    const newLeft = Math.random() * (viewportWidth - elemWidth);
+
+    elem.style.top = `${newTop}px`;
+    elem.style.left = `${newLeft}px`;
+
+    console.log("Annoyance Meter:" + annoyianceMeter)
+
+    annoyianceMeter++;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    const button = document.getElementById('movingButton');
+    const elem = document.getElementById('annoyingLink');
 
-    button.addEventListener('mouseover', () => {
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-        const buttonWidth = button.offsetWidth;
-        const buttonHeight = button.offsetHeight;
-
-        const newTop = Math.random() * (viewportHeight - buttonHeight);
-        const newLeft = Math.random() * (viewportWidth - buttonWidth);
-
-        button.style.top = `${newTop}px`;
-        button.style.left = `${newLeft}px`;
-    });
+    elem.addEventListener('mouseover', () => moveElem(elem));
 });
