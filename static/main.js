@@ -11,7 +11,6 @@ function moveElem(elem){
 
     elem.style.top = `${newTop}px`;
     elem.style.left = `${newLeft}px`;
-    console.log(elem.style)
 
     // console.log("Annoyance Meter:" + annoyianceMeter)
     if (annoyianceMeter == 10){
@@ -34,8 +33,16 @@ function cloneAnnoyingElem(elem, newText){
     clone.style.left = "20px";
 }
 
+function ohIMissed(){
+    const missed = new Audio("static/missed.m4a")
+    missed.volume = 0.5;
+    missed.play();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const elem = document.getElementById('annoyingLink');
 
     elem.addEventListener('mouseover', () => moveElem(elem));
 });
+document.addEventListener("click", ohIMissed);
+// Add event listener for when the user leaves the page, displaying "User successfully annoyed" message
