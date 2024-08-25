@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- We need to make this better, make a base html that we can extend -->
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <script type="module" src="{{ url_for('static', filename='main.js') }}"></script>
-    <title>Annoying Site</title>
+    {% include "header.html" %}
     <style>
         body {
             display: flex;
