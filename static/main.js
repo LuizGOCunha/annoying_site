@@ -11,10 +11,27 @@ function moveElem(elem){
 
     elem.style.top = `${newTop}px`;
     elem.style.left = `${newLeft}px`;
+    console.log(elem.style)
 
-    console.log("Annoyance Meter:" + annoyianceMeter)
+    // console.log("Annoyance Meter:" + annoyianceMeter)
+    if (annoyianceMeter == 10){
+        cloneAnnoyingElem(elem, "Help Me!")
+    }
+
+    if (annoyianceMeter == 30){
+        cloneAnnoyingElem(elem, "Give Up")
+    }
 
     annoyianceMeter++;
+}
+
+function cloneAnnoyingElem(elem, newText){
+    const clone = elem.cloneNode(true);
+    clone.innerHTML = newText
+    clone.addEventListener('mouseover', () => moveElem(clone))
+    document.body.appendChild(clone)
+    clone.style.top = "20px";
+    clone.style.left = "20px";
 }
 
 document.addEventListener('DOMContentLoaded', () => {
