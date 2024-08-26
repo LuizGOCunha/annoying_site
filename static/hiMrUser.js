@@ -1,4 +1,5 @@
 function redirectToHome(){
+    alert("Stop cheating, fat ass")
     window.location.href = "/"
 }
 
