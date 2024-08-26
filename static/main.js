@@ -39,10 +39,17 @@ function ohIMissed(){
     missed.play();
 }
 
+function redirectToSuccessPage(event){
+    event.preventDefault();
+    window.location.href = "you-dit-it";
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const elem = document.getElementById('annoyingLink');
 
     elem.addEventListener('mouseover', () => moveElem(elem));
+    elem.addEventListener('click', redirectToSuccessPage);
+
 });
 document.addEventListener("click", ohIMissed);
 // Add event listener for when the user leaves the page, displaying "User successfully annoyed" message
