@@ -1,3 +1,17 @@
+import Caesar from './cryptography_js/caesar.js';
+
+var encryptedYDIRoute = document.getElementById('Nothing to see here, keep walking!').className;
+var secretPageAddress = document.getElementById("annoyingLink").getAttribute("href")
+
+var key = 0
+for (let i = 0; i < secretPageAddress.length; i++){
+    let numeric_char = Number(secretPageAddress[i]);
+    if (!isNaN(numeric_char)){
+        key += Number(secretPageAddress[i])        
+    }
+}
+console.log("Key: " + key);
+
 var annoyianceMeter = 0;
 
 function moveElem(elem){
@@ -41,7 +55,12 @@ function ohIMissed(){
 
 function redirectToSuccessPage(event){
     event.preventDefault();
-    window.location.href = "you-dit-it";
+    let encryptor = new Caesar(key);
+    encryptor.reverseKey()
+    let YDIRoute = encryptor.encrypt(encryptedYDIRoute)
+    console.log(encryptor.key)
+    console.log(YDIRoute)
+    window.location.href = YDIRoute;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
