@@ -108,8 +108,8 @@ class Caesar:
 
             index_on_list = self.ascii_chars.index(char)
             encrypted_index = index_on_list + self.key
-            while encrypted_index > len(self.ascii_chars) or encrypted_index < 0:
-                if encrypted_index > len(self.ascii_chars):
+            while encrypted_index >= len(self.ascii_chars) or encrypted_index < 0:
+                if encrypted_index >= len(self.ascii_chars):
                     encrypted_index = encrypted_index - len(self.ascii_chars)
                 elif encrypted_index < 0:
                     encrypted_index = encrypted_index + len(self.ascii_chars)

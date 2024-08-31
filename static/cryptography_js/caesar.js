@@ -117,10 +117,10 @@ class Caesar{
             let index_on_list = this.ascii_chars.indexOf(char)
             let encrypted_index = index_on_list + this.key
     //     while encrypted_index > len(self.ascii_chars) or encrypted_index < 0:
-            while ((encrypted_index > this.ascii_chars.length) || (encrypted_index < 0)){
+            while ((encrypted_index >= this.ascii_chars.length) || (encrypted_index < 0)){
     //         if encrypted_index > len(self.ascii_chars):
     //             encrypted_index = encrypted_index - len(self.ascii_chars)
-                if (encrypted_index > this.ascii_chars.length){
+                if (encrypted_index >= this.ascii_chars.length){
                     encrypted_index = encrypted_index - this.ascii_chars.length
                 }
     //         elif encrypted_index < 0:
