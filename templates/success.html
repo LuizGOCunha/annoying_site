@@ -1,1 +1,28 @@
-Congrats, fat ass!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "header.html" %}
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <img src="{{url_for('static', filename='congrats.gif')}}" alt="Centered GIF">
+        <div style="justify-content: center; align-items: center;">
+            <h1>Congrats</h1><br>
+            <h2>enjoy a spinning roach</h2>
+        </div>
+    </div>
+</body>
+</html>
