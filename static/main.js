@@ -29,21 +29,22 @@ function moveElem(elem){
 
     // console.log("Annoyance Meter:" + annoyianceMeter)
     if (annoyianceMeter == 10){
-        cloneAnnoyingElem(elem, "Help Me!", () => alert("See? You can do it! No help needed."))
+        cloneAnnoyingElem(elem, "Help Me!", () => alert("See? You can do it! No help needed."), "red")
     }
 
     if (annoyianceMeter == 30){
-        cloneAnnoyingElem(elem, "Give Up", () => alert("Never Give up!"))
+        cloneAnnoyingElem(elem, "Give Up", () => alert("Never Give up!"), "black")
     }
 
     annoyianceMeter++;
 }
 
-function cloneAnnoyingElem(elem, newText, annoyingAlert){
+function cloneAnnoyingElem(elem, newText, annoyingAlert, backgroundColor){
     const clone = elem.cloneNode(true);
-    clone.innerHTML = newText
-    clone.href = "#"
-    clone.addEventListener('mouseover', () => setTimeout(() => moveElem(clone), 100))
+    clone.innerHTML = newText;
+    clone.href = "#";
+    clone.style.backgroundColor = backgroundColor;
+    clone.addEventListener('mouseover', () => setTimeout(() => moveElem(clone), 150))
     clone.addEventListener('click', () => annoyingAlert())
     document.body.appendChild(clone)
     clone.style.top = "20px";
