@@ -4,6 +4,7 @@ var encryptedYDIRoute = document.getElementById('Nothing to see here, keep walki
 var secretPageAddress = document.getElementById("annoyingLink").getAttribute("href")
 
 var key = 0
+// making calculations for decryption key
 for (let i = 0; i < secretPageAddress.length; i++){
     let numeric_char = Number(secretPageAddress[i]);
     if (!isNaN(numeric_char)){
@@ -28,20 +29,22 @@ function moveElem(elem){
 
     // console.log("Annoyance Meter:" + annoyianceMeter)
     if (annoyianceMeter == 10){
-        cloneAnnoyingElem(elem, "Help Me!")
+        cloneAnnoyingElem(elem, "Help Me!", () => alert("See? You can do it! No help needed."))
     }
 
     if (annoyianceMeter == 30){
-        cloneAnnoyingElem(elem, "Give Up")
+        cloneAnnoyingElem(elem, "Give Up", () => alert("Never Give up!"))
     }
 
     annoyianceMeter++;
 }
 
-function cloneAnnoyingElem(elem, newText){
+function cloneAnnoyingElem(elem, newText, annoyingAlert){
     const clone = elem.cloneNode(true);
     clone.innerHTML = newText
-    clone.addEventListener('mouseover', () => moveElem(clone))
+    clone.href = "#"
+    clone.addEventListener('mouseover', () => setTimeout(() => moveElem(clone), 100))
+    clone.addEventListener('click', () => annoyingAlert())
     document.body.appendChild(clone)
     clone.style.top = "20px";
     clone.style.left = "20px";
@@ -70,5 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
     elem.addEventListener('click', redirectToSuccessPage);
 
 });
-document.addEventListener("click", ohIMissed);
+document.addEventListener("click", (e) => {
+    if (!e.target.id.includes("annoyingLink")){
+        ohIMissed()
+    }
+});
 // Add event listener for when the user leaves the page, displaying "User successfully annoyed" message
